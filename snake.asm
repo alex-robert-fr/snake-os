@@ -66,6 +66,14 @@ game_loop:
 	mov ax, APPLECOLOR
 	stosw
 
+	delay_loop:
+		mov bx, [TIMER]
+		inc bx
+		inc bx
+		.delay:
+			cmp [TIMER], bx
+			jl .delay
+
 
 jmp game_loop
 ;; Bootsector padding
